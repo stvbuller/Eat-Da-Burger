@@ -3,6 +3,15 @@ var app = express()
 var bodyParser = require('body-parser')
 
 var PORT = process.env.PORT || 8090;
+
+var connect        = require('connect')
+var methodOverride = require('method-override')
+ 
+// override with the X-HTTP-Method-Override header in the request 
+app.use(methodOverride('X-HTTP-Method-Override'))
+
+
+
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
