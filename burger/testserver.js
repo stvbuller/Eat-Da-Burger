@@ -48,20 +48,20 @@ app.post('/create', function(req, res) {
   });
 });
 
-// app.get('/devoured/:id', function(req, res) {
-//   var mySQLQuery = 'UPDATE burgers SET devoured=true WHERE id=?' + req.params.id;
+app.get('/update/:id', function(req, res) {
+  var mySQLQuery = "UPDATE burgers SET devoured=1 WHERE id=" + connection.escape(req.params.id);
 
-//   connection.query(mySQLQuery, function(err) {
-//     if (err) {
-//       throw err
-//     }
-//     res.redirect('/');
-//   });
-// });
+  connection.query(mySQLQuery, function(err) {
+    if (err) {
+      throw err
+    }
+    res.redirect('/');
+  });
+});
 
 
 app.get('/delete/:id', function(req, res) {
-  var mySQLQuery = "DELETE FROM burger WHERE id=" + req.params.id;
+  var mySQLQuery = "DELETE FROM burgers WHERE id=" + req.params.id;
 
   connection.query(mySQLQuery, function(err) {
     if (err) {

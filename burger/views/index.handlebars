@@ -1,9 +1,10 @@
 <h1>Burger Menu</h1>
 {{#each burgerData}}
   <pre>
-    {{id}}. {{burger_name}} {{devoured}}
+    {{id}}. {{burger_name}}  Eaten? {{devoured}}
     <form action="/update/{{ id }}" method="post">
-      {{id}}. <input type="text" value="{{burger_name}}" name="item"><button type="submit">Devour</button>
+      {{id}}. <input type="text" value="{{burger_name}}" name="item">
+      <button type="submit">Devour</button>
       <a href="/delete/{{ id }}">delete</a>
     </form>   
   </pre>

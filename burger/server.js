@@ -10,12 +10,11 @@ var PORT = process.env.PORT || 8090;
  
 // override with the X-HTTP-Method-Override header in the request 
 app.use(methodOverride('X-HTTP-Method-Override'))
-//set up for handlebars
+//setup for handlebars
 app.engine('handlebars', expressHandlebars({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({extended: false}));
 
-//var connect        = require('connect')
 
  
 //connection.end();
