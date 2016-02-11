@@ -1,9 +1,9 @@
-CREATE DATABASE burgers_db
+CREATE DATABASE burgers_db;
 
 CREATE TABLE burgers (
 id INT NOT NUll AUTO_INCREMENT,
 burger_name VARCHAR(255),
 devoured BOOLEAN,
-date1 DATETIME(),
+date1 DATETIME,
 PRIMARY KEY (id)
-)
+);
