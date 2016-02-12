@@ -17,7 +17,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 
 app.get('/', function (req, res) {
-        //res.render('index', lineage);
         res.send('Hello World');
 });
  
