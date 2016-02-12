@@ -16,9 +16,6 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({extended: false}));
 
 
- 
-//connection.end();
-
 app.get('/', function (req, res) {
         //res.render('index', lineage);
         res.send('Hello World');
@@ -27,3 +24,5 @@ app.get('/', function (req, res) {
 app.listen(PORT, function() {
   console.log("Listening at %s", PORT);
 });
+
+//connection.end();

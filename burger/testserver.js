@@ -17,11 +17,6 @@ var connection = mysql.createConnection({
 });
 
 
-// app.get('/', function (req, res) {
-//         //res.render('index', lineage);
-//         res.send('Hello World');
-// });
-
 app.get('/',function(req,res){
   connection.query("SELECT * FROM burgers", function(err, results) {
     if(err) {
@@ -48,7 +43,7 @@ app.post('/create', function(req, res) {
   });
 });
 
-app.get('/update/:id', function(req, res) {
+app.post('/update/:id', function(req, res) {
   var mySQLQuery = "UPDATE burgers SET devoured=1 WHERE id=" + connection.escape(req.params.id);
 
   connection.query(mySQLQuery, function(err) {
@@ -60,16 +55,16 @@ app.get('/update/:id', function(req, res) {
 });
 
 
-app.get('/delete/:id', function(req, res) {
-  var mySQLQuery = "DELETE FROM burgers WHERE id=" + req.params.id;
+// app.get('/delete/:id', function(req, res) {
+//   var mySQLQuery = "DELETE FROM burgers WHERE id=" + req.params.id;
 
-  connection.query(mySQLQuery, function(err) {
-    if (err) {
-      throw err
-    }
-    res.redirect('/');
-  });
-});
+//   connection.query(mySQLQuery, function(err) {
+//     if (err) {
+//       throw err
+//     }
+//     res.redirect('/');
+//   });
+// });
 
 
 app.listen(PORT, function(){
