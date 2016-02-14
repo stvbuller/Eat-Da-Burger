@@ -1,10 +1,15 @@
 <h1>The Burger Cafe Menu</h1>
+Waiting to be devoured!
 {{#each burgerData}}
   <pre>
-    {{id}}. {{burger_name}}  Eaten? {{devoured}}
-    <form action="/update/{{ id }}" method="post">
+    {{#if this.devoured}}
+      <span>             <span>This burger was eaten: {{burger_name}}
+    {{else}}
+      {{burger_name}} 
+      <form action="/update/{{ id }}" method="post">
       <button type="submit">Devour it!</button>
-    </form>   
+    </form> 
+    {{/if}}  
   </pre>
 {{/each}}
 

@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var queries = require('../models/burger.js');
 
-
 router.get('/', function(req, res) {
     queries.show(function(data){
         //console.log(data);
@@ -11,7 +10,6 @@ router.get('/', function(req, res) {
         }
         //res.render('index', {data : data});
         res.render('index', data1);
-
     });
 });
 
@@ -26,7 +24,6 @@ router.post('/update/:id', function(req, res) {
         res.redirect('/');
     });
 });
-
 
 module.exports = router;
 

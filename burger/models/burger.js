@@ -2,7 +2,7 @@ var orm = require("../config/orm.js");
 
 var burgerQueries = {
   show: function(cb) {
-    orm.showBurgers('things', function(res) {
+    orm.showBurgers('tableName', function(res) {
       cb(res);
     });
   },
@@ -17,6 +17,5 @@ var burgerQueries = {
     })
   }
 };
-
 
 module.exports = burgerQueries;
