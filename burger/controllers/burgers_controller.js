@@ -15,11 +15,18 @@ router.get('/', function(req, res) {
     });
 });
 
-// router.post('/create', function(req, res) {
-//     queries.add(function(data) {
+router.post('/create', function(req, res) {
+    queries.add(req.body.item, function(data) {
+        res.redirect('/');
+    });
+});
+
+// router.post('/update/:id', function(req, res) {
+//     queries.eat(38, function(data) {
 //         res.redirect('/');
-//     })
-// })
+//     });
+//     res.redirect('/');
+// });
 
 
 module.exports = router;
