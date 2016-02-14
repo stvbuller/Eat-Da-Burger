@@ -1,5 +1,5 @@
-var connectMysql = require("./connection.js");
-var connection = connectMysql.connectDb();
+var connection = require("./connection.js");
+//var connection = connectMysql.connectDb();
 
 connection.connect(function(err) {
   if(err) {
@@ -22,16 +22,19 @@ exports.addBurger = function(burger){
 exports.devourBurger = function(id) {
   var id = id;
   connection.query("UPDATE burgers SET devoured=1 WHERE id=?", [id], function(err, rows, fields) {                                                   
-    if (err) throw err;                
+    if (err) {
+      throw err;                
+    }
   }); 
 }
 
-//used to test the database queryies and functions
-//devourBurger(8);
-//addBurger("chedder");
+exports.showMenu = function() {
+  connection.query('SELECT * FROM burgers', function(err, results) {                                                   
+      if (err) {
+        throw err
+      };
+      console.log("The burger connection test :" + results[0].burger_name); 
+      return results;                
+  });
+ } 
 
-
-// connection.query('SELECT * FROM burgers', function(err, rows, fields) {                                                   
-//     if (err) throw err;
-//     console.log("The burger connection test :" + rows[0].burger_name);                 
-// });
