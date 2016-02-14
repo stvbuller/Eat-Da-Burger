@@ -1,11 +1,12 @@
-var addBurger1 = require("../config/orm.js");
-var eatBurger = require("../config/orm.js");
-var shwMenu = require("../config/orm.js");
+var orm = require("../config/orm.js");
+
+var things = {
+  show: function(cb) {
+    orm.showBurgers('things', function(res) {
+      cb(res)
+    });
+  }
+};
 
 
-//exports.burger =function() {}
-
-
-addBurger1.addBurger("swiss");
-eatBurger.devourBurger(10);
-shwMenu.showMenu();
+module.exports = things;
