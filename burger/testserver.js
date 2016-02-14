@@ -1,9 +1,11 @@
+//used to test the database connection, queries, express, express-handlebars
+//and body-parser
 var express = require('express')
 var app = express()
 var expressHandlebars = require('express-handlebars')
 var mysql = require('mysql')
 var bodyParser = require('body-parser')
-var PORT = 8090;
+var app = express()
 app.engine('handlebars', expressHandlebars({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({extended: false}));

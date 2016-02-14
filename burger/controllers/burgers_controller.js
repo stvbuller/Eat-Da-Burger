@@ -7,6 +7,7 @@ var expressHandlebars = require('express-handlebars');
 app.engine('handlebars', expressHandlebars({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+//app.use("/views", express.static("/views"));
 //app.set('views', __dirname + '../views');
 // app.engine('handlebars', expressHandlebars({
 //             defaultLayout:'main', 
@@ -19,12 +20,6 @@ app.set('view engine', 'handlebars');
 //         layoutsDir:'server/views/layouts',
 //         partialsDir:'server/views/partials'
 // }));
-
-// app.engine('hbs', HBS({
-//             extname:'hbs', 
-//             defaultLayout:'main.hbs', 
-//             layoutsDir: PATH.resolve(__dirname, 'templates/layouts')
-//         }));
 
 var PORT = process.env.PORT || 8090;
 
