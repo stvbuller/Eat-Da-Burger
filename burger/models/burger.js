@@ -11,8 +11,8 @@ var burgerQueries = {
       cb(res);
     });
   },
-  eat: function(cb) {
-    orm.eatBurger(38, function(res){
+  eat: function(burgerId, cb) {
+    orm.eatBurger(burgerId, function(res){
       cb(res);
     })
   }
