@@ -13,21 +13,21 @@ var orm = {
     var mySQLQuery = "INSERT INTO burgers (burger_name) VALUES ('" + burgerName + "')";
     connection.query(mySQLQuery, function(err, result) {
       if (err) throw err;
-      //cb(result);
+      cb(result);
     });
   },
   eatBurger: function(id, cb) {
     var id = id;
     connection.query("UPDATE burgers SET devoured=1 WHERE id=?", [id], function(err, result) {                                                   
       if (err) throw err;
-      //cb(result);
+      cb(result);
     }); 
   },
   showBurgers: function(cb) {
   connection.query('SELECT * FROM burgers', function(err, result) {                                                   
       if (err) throw err; 
       console.log("The burger connection test :" + result[0].burger_name); 
-      //cb(result);               
+      cb(result);               
   });
  } 
 };
@@ -35,6 +35,6 @@ var orm = {
 module.exports = orm;
 
 //used to test the orm functions
-orm.addBurger("cheese");
-orm.eatBurger(29);
-orm.showBurgers();
+// orm.addBurger("cheese");
+// orm.eatBurger(29);
+// orm.showBurgers();
