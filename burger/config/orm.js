@@ -1,4 +1,4 @@
-var connection = require("./connection.js");
+var connection = require("../config/connection.js");
 
 connection.connect(function(err) {
   if(err) {
@@ -33,6 +33,6 @@ var orm = {
 };
 
 //used to test the orm functions
-// orm.addBurger("cheese");
-// orm.eatBurger(29);
-// orm.showBurgers();
+orm.addBurger("cheese");
+orm.eatBurger(29);
+orm.showBurgers();
