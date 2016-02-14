@@ -1,5 +1,4 @@
 var connection = require("./connection.js");
-//var connection = connectMysql.connectDb();
 
 connection.connect(function(err) {
   if(err) {
@@ -8,16 +7,26 @@ connection.connect(function(err) {
   console.log("Connected as id: %s", connection.threadId)
 });
 
+var orm = {
+  addBurger: function(burger, cb){
+    var burgerName = burger;
+    var mySQLQuery = "INSERT INTO burgers (burger_name) VALUES ('" + burgerName + "')";
+    connection.query(mySQLQuery, function(err, result) {
+      if (err) throw err;
+      //cb(result);
+    });
+  }
+};
 
-exports.addBurger = function(burger){
-  var burgerName = burger;
-  var mySQLQuery = "INSERT INTO burgers (burger_name) VALUES ('" + burgerName + "')";
-  connection.query(mySQLQuery, function(err) {
-    if (err) {
-      throw err
-    }
-  });
-}
+// exports.addBurger = function(burger){
+//   var burgerName = burger;
+//   var mySQLQuery = "INSERT INTO burgers (burger_name) VALUES ('" + burgerName + "')";
+//   connection.query(mySQLQuery, function(err) {
+//     if (err) {
+//       throw err
+//     }
+//   });
+// }
 
 exports.devourBurger = function(id) {
   var id = id;
@@ -37,4 +46,6 @@ exports.showMenu = function() {
       return results;                
   });
  } 
+
+orm.addBurger("cheese");
 
