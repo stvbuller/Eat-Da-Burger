@@ -16,8 +16,8 @@ var orm = {
       cb(result);
     });
   },
-  eatBurger: function(id, cb) {
-    var id = id;
+  eatBurger: function(burgerId, cb) {
+    var id = burgerId;
     connection.query("UPDATE burgers SET devoured=1 WHERE id=?", [id], function(err, result) {                                                   
       if (err) throw err;
       cb(result);
