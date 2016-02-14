@@ -8,34 +8,28 @@ connection.connect(function(err) {
 });
 
 var orm = {
-  addBurger: function(burger, cb){
+  addBurger: function(burger, cb) {
     var burgerName = burger;
     var mySQLQuery = "INSERT INTO burgers (burger_name) VALUES ('" + burgerName + "')";
     connection.query(mySQLQuery, function(err, result) {
       if (err) throw err;
       //cb(result);
     });
+  },
+
+  eatBurger: function(id, cb) {
+    var id = id;
+    connection.query("UPDATE burgers SET devoured=1 WHERE id=?", [id], function(err, rows, fields) {                                                   
+      if (err) throw err;
+      //cb(result);
+    }); 
   }
+
 };
 
-// exports.addBurger = function(burger){
-//   var burgerName = burger;
-//   var mySQLQuery = "INSERT INTO burgers (burger_name) VALUES ('" + burgerName + "')";
-//   connection.query(mySQLQuery, function(err) {
-//     if (err) {
-//       throw err
-//     }
-//   });
-// }
 
-exports.devourBurger = function(id) {
-  var id = id;
-  connection.query("UPDATE burgers SET devoured=1 WHERE id=?", [id], function(err, rows, fields) {                                                   
-    if (err) {
-      throw err;                
-    }
-  }); 
-}
+
+
 
 exports.showMenu = function() {
   connection.query('SELECT * FROM burgers', function(err, results) {                                                   
@@ -48,4 +42,4 @@ exports.showMenu = function() {
  } 
 
 orm.addBurger("cheese");
-
+orm.eatBurger(28);
