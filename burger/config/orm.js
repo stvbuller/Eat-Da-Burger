@@ -16,30 +16,23 @@ var orm = {
       //cb(result);
     });
   },
-
   eatBurger: function(id, cb) {
     var id = id;
-    connection.query("UPDATE burgers SET devoured=1 WHERE id=?", [id], function(err, rows, fields) {                                                   
+    connection.query("UPDATE burgers SET devoured=1 WHERE id=?", [id], function(err, result) {                                                   
       if (err) throw err;
       //cb(result);
     }); 
-  }
-
-};
-
-
-
-
-
-exports.showMenu = function() {
-  connection.query('SELECT * FROM burgers', function(err, results) {                                                   
-      if (err) {
-        throw err
-      };
-      console.log("The burger connection test :" + results[0].burger_name); 
-      return results;                
+  },
+  showBurgers: function() {
+  connection.query('SELECT * FROM burgers', function(err, result) {                                                   
+      if (err) throw err; 
+      console.log("The burger connection test :" + result[0].burger_name); 
+      //cb(result);               
   });
  } 
+};
 
-orm.addBurger("cheese");
-orm.eatBurger(28);
+//used to test the orm functions
+// orm.addBurger("cheese");
+// orm.eatBurger(29);
+// orm.showBurgers();
