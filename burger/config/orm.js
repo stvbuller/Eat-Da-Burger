@@ -23,7 +23,7 @@ var orm = {
       //cb(result);
     }); 
   },
-  showBurgers: function() {
+  showBurgers: function(cb) {
   connection.query('SELECT * FROM burgers', function(err, result) {                                                   
       if (err) throw err; 
       console.log("The burger connection test :" + result[0].burger_name); 
@@ -31,6 +31,8 @@ var orm = {
   });
  } 
 };
+
+module.exports = orm;
 
 //used to test the orm functions
 orm.addBurger("cheese");
