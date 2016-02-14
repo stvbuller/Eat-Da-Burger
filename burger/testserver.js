@@ -26,7 +26,6 @@ app.get('/',function(req,res){
     }
     var data = {
       burgerData: results
-
     }
     //res.send(results);
     res.render('index', data);
