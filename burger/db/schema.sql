@@ -6,7 +6,7 @@ CREATE TABLE burgers (
 id INT NOT NUll AUTO_INCREMENT,
 burger_name VARCHAR(255),
 devoured BOOLEAN,
-date1 DATETIME,
+date1 TIMESTAMP,
 PRIMARY KEY (id)
 );
 
